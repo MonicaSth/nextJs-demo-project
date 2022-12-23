@@ -19,23 +19,11 @@ function HomePage(props) {
   );
 }
 
-// export async function getServerSideProps(context) {
-//   const req = context.req;
-//   const res = context.res;
-
-//   // fetch data from an API
-
-//   return {
-//     props: {
-//       meetups: DUMMY_MEETUPS,
-//     },
-//   };
-// }
 
 export async function getStaticProps() {
   //   // fetch data from an API
   const client = await MongoClient.connect(
-    "mongodb+srv://mstuhlmuller:QmD0wAWYwgZPIKOq@cluster0.4x53108.mongodb.net/meetups?retryWrites=true&w=majority"
+    "mongodb+srv://myuser:password@cluster0.4x53108.mongodb.net/meetups?retryWrites=true&w=majority"
   );
   const db = client.db();
 
@@ -45,13 +33,6 @@ export async function getStaticProps() {
 
   client.close();
 
-  //   return {
-  //     props: {
-  //       meetups: meetups,
-  //     },
-  //     revalidate: 10,
-  //   };
-  // }
 
   return {
     props: {
